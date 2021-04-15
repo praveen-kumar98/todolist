@@ -25,7 +25,8 @@ function App() {
 
   const [filter, setFilter] = useState("All");
   const [tasks, setTasks] = useState([]);
-  const [error, setError] = useState(null); // eslint-disable-line no-use-before-define
+  // eslint-disable-next-line
+  const [error, setError] = useState(null);
   const toggleTodoCompleted = (id) => {
     const updatedTodos = tasks.map((task) => {
       if (id === task._id) {
@@ -65,33 +66,39 @@ function App() {
       .catch((err) => setError(err));
   };
   return (
-    <div>
-      <Form addTodo={addTodo} />
-      <div>
-        {filterName.map((name) => (
-          <FilterButton
-            key={name}
-            name={name}
-            pressed={name === filter}
-            setFilter={setFilter}
-          />
-        ))}
-      </div>
-      <div>
-        {tasks.filter(filters[filter]).map((task) => (
-          <TodoItem
-            key={task._id}
-            _id={task._id}
-            title={task.title}
-            completed={task.completed}
-            toggleTodoCompleted={toggleTodoCompleted}
-            deleteTodo={deleteTodo}
-            editTodo={editTodo}
-            key={task._id}
-          />
-        ))}
-      </div>
-    </div>
+    <>
+      <div className="top-img"></div>
+      <main>
+        <div className="header">
+          <h1>TODO</h1>
+          <div id="btn" className="tgl-btn"></div>
+        </div>
+        <Form addTodo={addTodo} />
+        <div className="filters">
+          {filterName.map((name) => (
+            <FilterButton
+              key={name}
+              name={name}
+              pressed={name === filter}
+              setFilter={setFilter}
+            />
+          ))}
+        </div>
+        <div className="todos">
+          {tasks.filter(filters[filter]).map((task) => (
+            <TodoItem
+              key={task._id}
+              _id={task._id}
+              title={task.title}
+              completed={task.completed}
+              toggleTodoCompleted={toggleTodoCompleted}
+              deleteTodo={deleteTodo}
+              editTodo={editTodo}
+            />
+          ))}
+        </div>
+      </main>
+    </>
   );
 }
 

@@ -29,7 +29,7 @@ router.put("/todo/:id", async (req, res, next) => {
     if (todo) {
       todo.title = req.body.title;
       await todo.save();
-      res.json(todo);
+      return res.json(todo);
     }
     const err1 = new Error("Todo not found");
     err1.status = 400;
