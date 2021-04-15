@@ -3,6 +3,7 @@ import React from "react";
 const FilterButton = ({ name, pressed, setFilter }) => {
   return (
     <button
+      className={`${pressed ? "filterActive" : ""} filterBtn`}
       type="button"
       aria-pressed={pressed}
       onClick={() => setFilter(name)}
@@ -13,3 +14,4 @@ const FilterButton = ({ name, pressed, setFilter }) => {
 };
 
 export default FilterButton;
+// filterActive
