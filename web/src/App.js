@@ -38,8 +38,8 @@ function App() {
   };
   const addTodo = (title) => {
     Service.createTodo(title)
-      .then((data) => {
-        const newTask = data;
+      .then((res) => {
+        const newTask = res.todo;
         setTasks([...tasks, newTask]);
       })
       .catch((err) => setError(err));
