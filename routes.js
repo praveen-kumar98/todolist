@@ -8,7 +8,7 @@ router.post("/todos", async (req, res, next) => {
   });
   try {
     const todo = await newTodo.save();
-    return res.json(todo);
+    return res.json({todo});
   } catch (err) {
     res.staus(500).json(err);
   }

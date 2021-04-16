@@ -1,20 +1,19 @@
+import axios from "axios";
+
 const Service = {
-  getTodos: () => {
-    return fetch("http://localhost:4000/api/todos").then((r) => r.json());
+  getTodos: async () => {
+    const res = await axios.get("http://localhost:4000/api/todos");
+    return res.data;
   },
-  createTodo: (title) => {
-    return fetch("http://localhost:4000/api/todos", {
-      method: "POST",
-      body: JSON.stringify({ title: title }),
-      headers: { "Content-Type": "application/json" },
+  createTodo: async (title) => {
+    const res = await axios.post("http://localhost:4000/api/todos", {
+      title: title,
     });
+    return res.data;
   },
-  updateTodo: (id, title) => {
-    return fetch(`http://localhost:4000/api/todo/${id}`, {
-      method: "PUT",
-      body: JSON.stringify({ title: title }),
-      headers: { "Content-Type": "application/json" },
-    });
+  updateTodo: async (id, title) => {
+    const res = await axios.put(`http://localhost:4000/api/todo/${id}`, { title: title });
+    return res.data
   },
   deleteTodo: (id) => {
     return fetch(`http://localhost:4000/api/todo/${id}`, {

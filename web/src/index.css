@@ -87,9 +87,6 @@ input[type="text"]:focus {
 
 .todos {
   margin-top: 24px;
-  padding: 0 10px;
-  background: var(--bg-todo);
-  border-radius: 10px;
 }
 
 .edit {
@@ -102,6 +99,8 @@ input[type="text"]:focus {
   align-items: center;
   padding: 8px;
   font-size: 20px;
+  border-radius: 10px;
+
 }
 
 .edit input[type="text"]{
@@ -119,6 +118,8 @@ input[type="text"]:focus {
   align-items: center;
   padding: 10px;
   font-size: 20px;
+  border-radius: 10px;
+  margin: 5px 0;
 }
 
 input[type="checkbox"] {
@@ -218,11 +219,3 @@ input[type="checkbox"]:checked:after {
 .btn:focus{
   outline: none;
 }
-
-/* .danger {
-  color: #FB301E;
-}
-
-.success {
-  color: #0BFF02;
-} */
