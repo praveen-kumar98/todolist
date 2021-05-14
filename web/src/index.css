@@ -101,7 +101,6 @@ input[type="text"]:focus {
   font-size: 20px;
   border-radius: 10px;
 
-}
 
 .edit input[type="text"]{
   background: var(--bg);
@@ -218,4 +217,4 @@ input[type="checkbox"]:checked:after {
 
 .btn:focus{
   outline: none;
-}
+  }
